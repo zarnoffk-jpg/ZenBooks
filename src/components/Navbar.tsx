@@ -1,85 +1,77 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
+
+const navLinks = [
+  { label: 'Services', href: '/#services' },
+  { label: 'Who We Help', href: '/#personas' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'About', href: '/about' },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'How It Works', path: '/#how-it-works' },
-    { name: 'Real Estate Investors', path: '/real-estate-investors' },
-    { name: 'Therapists & Consultants', path: '/therapists-consultants' },
-    { name: 'About', path: '/about' },
-  ];
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
-            <Link to="/" className="text-2xl font-semibold tracking-tight text-emerald-900 flex items-center gap-2">
-              Zen Books
-            </Link>
-          </div>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/60">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="text-xl font-semibold tracking-tight text-emerald-900">
+            Zen Books
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors ${
-                    isActive ? 'text-emerald-700' : 'text-stone-600 hover:text-emerald-700'
-                  }`
-                }
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors"
               >
-                {link.name}
-              </NavLink>
+                {link.label}
+              </a>
             ))}
-            <button className="bg-emerald-700 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-emerald-800 transition-colors shadow-sm hover:shadow-md">
+            <a
+              href="#book"
+              className="inline-flex items-center bg-emerald-700 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-emerald-800 transition-all shadow-sm hover:shadow-md hover:-translate-y-px"
+            >
               Book a Clarity Call
-            </button>
+            </a>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-stone-600 hover:text-stone-900 focus:outline-none"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden p-2 text-stone-600 hover:text-stone-900"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-stone-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-stone-100 bg-white">
+          <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive
-                      ? 'bg-emerald-50 text-emerald-700'
-                      : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'
-                  }`
-                }
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block py-2.5 text-sm font-medium text-stone-600 hover:text-emerald-700 transition-colors"
               >
-                {link.name}
-              </NavLink>
+                {link.label}
+              </a>
             ))}
-            <div className="pt-4 pb-2">
-              <button className="w-full bg-emerald-700 text-white px-5 py-3 rounded-full text-base font-medium hover:bg-emerald-800 transition-colors shadow-sm">
-                Book a Clarity Call
-              </button>
-            </div>
+            <a
+              href="#book"
+              onClick={() => setMobileOpen(false)}
+              className="block mt-3 text-center bg-emerald-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-emerald-800 transition-colors"
+            >
+              Book a Clarity Call
+            </a>
           </div>
         </div>
       )}

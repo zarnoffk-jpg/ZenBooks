@@ -1,39 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const footerLinks = [
+  { label: 'Services', href: '/#services' },
+  { label: 'About', href: '/about' },
+  { label: 'Real Estate', href: '/real-estate-investors' },
+  { label: 'Therapists', href: '/therapists-consultants' },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-stone-50 border-t border-stone-200 py-12 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div className="col-span-1 md:col-span-2">
-            <span className="text-xl font-semibold tracking-tight text-emerald-900">Zen Books</span>
-            <p className="text-stone-500 mt-4 max-w-xs leading-relaxed">
-              Judgment-free bookkeeping for Real Estate Investors and Therapists & Consultants. 
-              Based in Scranton, PA, serving clients remotely across the U.S.
+    <footer className="border-t border-stone-200/60 bg-white py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          {/* Brand */}
+          <div>
+            <span className="text-xl font-semibold tracking-tight text-emerald-900">
+              Zen Books
+            </span>
+            <p className="text-sm text-stone-400 mt-1">
+              Calm, judgment-free QuickBooks bookkeeping.
             </p>
           </div>
-          <div>
-            <h3 className="font-semibold text-stone-900 mb-4">Services</h3>
-            <ul className="space-y-2 text-sm text-stone-600">
-              <li><Link to="/real-estate-investors" className="hover:text-emerald-700">Real Estate Investors</Link></li>
-              <li><Link to="/therapists-consultants" className="hover:text-emerald-700">Therapists & Consultants</Link></li>
-              <li><Link to="/" className="hover:text-emerald-700">QuickBooks Cleanup</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-stone-900 mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-stone-600">
-              <li><Link to="/" className="hover:text-emerald-700">About Us</Link></li>
-              <li><Link to="/" className="hover:text-emerald-700">Contact</Link></li>
-              <li><Link to="/" className="hover:text-emerald-700">Privacy Policy</Link></li>
-            </ul>
+          
+          {/* Links */}
+          <div className="flex flex-wrap gap-6">
+            {footerLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-stone-500 hover:text-stone-700 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
-        <div className="pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-stone-400">
+        
+        {/* Bottom bar */}
+        <div className="mt-8 pt-6 border-t border-stone-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-stone-400">
             &copy; {new Date().getFullYear()} Zen Books. All rights reserved.
-          </div>
+          </p>
+          <p className="text-xs text-stone-400">
+            Scranton, PA &middot; Serving clients remotely across the U.S.
+          </p>
         </div>
       </div>
     </footer>
