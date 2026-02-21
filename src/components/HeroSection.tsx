@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { StatusCard } from './StatusCard';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-white pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+    <section className="relative bg-surface-secondary pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
       {/* Subtle background gradient */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50/40 via-white to-stone-50" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/50 via-surface-secondary to-emerald-50/20" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 md:gap-16 md:grid-cols-2 items-center">
         {/* Left: Copy */}
@@ -15,90 +16,68 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-sm font-medium tracking-wide uppercase text-emerald-700 mb-4"
+            className="text-sm font-sans font-semibold tracking-widest uppercase text-stone-500 mb-6"
           >
-            QuickBooks Bookkeeping for Small Business
+            Bookkeeping for Small Business
           </motion.p>
           
           <motion.h1 
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-stone-900 leading-[1.1] mb-6"
+            className="text-5xl md:text-6xl lg:text-[4rem] font-serif font-medium tracking-tight text-stone-900 leading-[1.1] mb-8"
           >
-            Stop Drowning in QuickBooks. <br className="hidden lg:block" />
-            <span className="text-emerald-800">We Bring Calm to Your Numbers.</span>
+            Stop Drowning in Your Books. <br className="hidden lg:block" />
+            <span className="text-emerald-800 italic">We Bring Calm to Your Numbers.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-stone-500 leading-relaxed mb-8 max-w-lg"
+            className="text-lg md:text-xl text-stone-600 leading-relaxed mb-10 max-w-lg font-sans"
           >
-            Judgment-free QuickBooks bookkeeping for <strong>Real Estate Investors</strong> and <strong>Therapists & Consultants</strong>. Based in Scranton, PA, serving clients remotely across the U.S.
+            Zen Books handles the messy, ongoing bookkeeping for busy investors, therapists, nonprofits, and operations-heavy businesses.
+            <br /><br />
+            You hand it off once; we keep it clean every month in QuickBooks Online so you can almost forget bookkeeping exists.
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3"
+            className="flex flex-col sm:flex-row gap-4"
           >
             {/* Primary CTA */}
             <a 
               href="#book" 
-              className="inline-flex items-center justify-center gap-2 bg-emerald-700 text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-emerald-800 transition-all shadow-sm hover:shadow-md hover:-translate-y-px"
+              className="inline-flex items-center justify-center gap-2 bg-emerald-800 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-emerald-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              Book a QuickBooks Clarity Call
+              Book a Clarity Call
               <ArrowRight className="w-4 h-4" />
             </a>
             
             {/* Secondary CTA */}
             <a 
               href="#services" 
-              className="inline-flex items-center justify-center gap-2 border border-stone-200 text-stone-700 px-6 py-3.5 rounded-lg text-sm font-semibold hover:border-stone-300 hover:bg-stone-50 transition-all"
+              className="inline-flex items-center justify-center gap-2 border-2 border-stone-300 text-stone-700 px-8 py-4 rounded-full text-base font-semibold hover:border-stone-400 hover:bg-stone-100 transition-all"
             >
               See Our Services
             </a>
           </motion.div>
         </div>
         
-        {/* Right: Illustration placeholder */}
+        {/* Right: Status Card Animation */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="hidden md:block relative"
+          className="flex justify-center items-center relative h-full min-h-[300px] md:min-h-[400px] w-full"
         >
-           <div className="aspect-[4/3] bg-stone-100 rounded-2xl overflow-hidden relative shadow-2xl shadow-stone-200/50 border border-stone-200/60">
-              {/* Abstract UI representation */}
-              <div className="absolute top-0 left-0 right-0 h-12 bg-white border-b border-stone-200 flex items-center px-4 gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400/20"></div>
-                <div className="w-3 h-3 rounded-full bg-amber-400/20"></div>
-                <div className="w-3 h-3 rounded-full bg-emerald-400/20"></div>
-              </div>
-              <div className="absolute top-20 left-8 right-8 bottom-8 bg-white rounded-lg shadow-sm border border-stone-100 p-6">
-                 <div className="w-1/3 h-4 bg-stone-100 rounded mb-6"></div>
-                 <div className="space-y-3">
-                    <div className="flex justify-between">
-                       <div className="w-1/2 h-3 bg-stone-50 rounded"></div>
-                       <div className="w-1/4 h-3 bg-emerald-50 rounded"></div>
-                    </div>
-                    <div className="flex justify-between">
-                       <div className="w-1/3 h-3 bg-stone-50 rounded"></div>
-                       <div className="w-1/4 h-3 bg-emerald-50 rounded"></div>
-                    </div>
-                    <div className="flex justify-between">
-                       <div className="w-2/3 h-3 bg-stone-50 rounded"></div>
-                       <div className="w-1/4 h-3 bg-emerald-50 rounded"></div>
-                    </div>
-                 </div>
-                 <div className="absolute bottom-6 right-6 w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
-                    <ArrowRight className="w-5 h-5" />
-                 </div>
-              </div>
-           </div>
+           {/* Decorative background blob */}
+           <div className="absolute inset-0 bg-emerald-100/30 rounded-full blur-3xl transform scale-75 translate-y-10 -z-10"></div>
+           
+           <StatusCard />
         </motion.div>
       </div>
     </section>

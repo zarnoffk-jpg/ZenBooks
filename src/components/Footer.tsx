@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const footerLinks = [
-  { label: 'Services', href: '/#services' },
+  { label: 'How It Works', href: '/#how-it-works' },
   { label: 'About', href: '/about' },
   { label: 'Real Estate', href: '/real-estate-investors' },
   { label: 'Therapists', href: '/therapists-consultants' },
@@ -19,7 +19,7 @@ export default function Footer() {
               Zen Books
             </span>
             <p className="text-sm text-stone-400 mt-1">
-              Calm, judgment-free QuickBooks bookkeeping.
+              Calm, judgment-free bookkeeping (done in QuickBooks Online).
             </p>
           </div>
           

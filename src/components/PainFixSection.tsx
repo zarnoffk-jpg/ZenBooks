@@ -21,13 +21,13 @@ export function PainFixSection() {
         {/* Section header */}
         <div className="max-w-2xl mx-auto text-center mb-14">
           <p className="text-sm font-medium tracking-wide uppercase text-emerald-400 mb-3">
-            What Zen Books Does
+            From Chaos to Calm
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            We Turn Chaos Into Calm
+            When your books feel overwhelming
           </h2>
           <p className="text-stone-400 leading-relaxed">
-            We are QuickBooks specialists who take the weight off your shoulders. You handle the business; we’ll handle the numbers (and we’ll never judge the mess).
+            We are bookkeeping and QuickBooks specialists who take the weight off your shoulders. You handle the business; we’ll handle the numbers (and we’ll never judge the mess).
           </p>
         </div>
         

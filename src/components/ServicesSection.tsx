@@ -6,84 +6,89 @@ interface ServiceCard {
   title: string;
   description: string;
   features: string[];
+  cta: string;
 }
 
 const services: ServiceCard[] = [
   {
-    icon: <ShieldCheck className="w-6 h-6" />,
-    title: 'Cleanup & Catch-Up',
-    description: 'For when you’re behind, your books are a mess, and tax time is looming. We dive into your history to fix errors and reconcile accounts.',
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: 'One-Time Bookkeeping Cleanup',
+    description: 'For when you’re behind and dread opening your finance apps. We categorize every past transaction so your history is accurate.',
     features: [
       'Historical categorization',
-      'Bank & card reconciliation',
-      'Fixing balance errors',
-      'Tax-ready financials'
+      'Reconcile all accounts to the penny',
+      'Fix errors & "mystery" balances',
+      'Hand us the mess once, we fix it'
     ],
+    cta: 'Start Cleanup'
   },
   {
-    icon: <Heart className="w-6 h-6" />,
-    title: 'Monthly QuickBooks Care',
-    description: 'Hand off the monthly chore completely. We keep your QuickBooks Online perfectly up-to-date with monthly categorization and simple reports.',
+    icon: <Heart className="w-8 h-8" />,
+    title: 'Monthly Bookkeeping Care',
+    description: 'Hand off the monthly chore completely. We keep your books done correctly every single month without you lifting a finger.',
     features: [
       'Monthly categorization',
       'Account reconciliation',
-      'Monthly P&L & Balance Sheet',
-      'Email support'
+      'Simple monthly reports',
+      'You hand it off once. We handle it quietly in the background every month.'
     ],
+    cta: 'Start Monthly Care'
   },
   {
-    icon: <BarChart3 className="w-6 h-6" />,
-    title: 'Premium Support',
-    description: 'For growing portfolios or busy practices that need deeper insight. Get more frequent reporting and regular check-in calls.',
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: 'Premium Bookkeeping Support',
+    description: 'For growing businesses with complex needs. Think of us as your partner keeping an eye on the numbers so you can focus on growth.',
     features: [
       'Detailed KPI tracking',
-      'Quarterly review calls',
-      'Budgeting & forecasting',
+      'Regular check-in calls',
+      'Coordination with CPA/Payroll',
       'Priority support'
     ],
+    cta: 'Get Premium Support'
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-stone-50">
+    <section id="services" className="py-24 md:py-32 bg-surface-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center mb-14">
-          <p className="text-sm font-medium tracking-wide uppercase text-emerald-700 mb-3">
-            What We Do
+        <div className="text-center mb-16">
+          <p className="text-sm font-sans font-semibold tracking-widest uppercase text-stone-500 mb-4">
+            WHAT WE DO
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 mb-4">
-            What We Do For Your QuickBooks
+          <h2 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-stone-900 mb-6">
+            Flexible bookkeeping services to get you <br className="hidden md:block" />
+            back on track and keep you there
           </h2>
-          <p className="text-stone-500 max-w-xl mx-auto">
-            Simple, transparent packages to get you back on track.
+          <p className="text-lg text-stone-600 max-w-2xl mx-auto font-sans">
+            Simple, transparent packages. You hand it off once, we handle it forever.
           </p>
         </div>
         
         {/* 3-card grid */}
-        <div className="grid gap-6 md:gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {services.map((svc, i) => (
             <div 
               key={i} 
-              className="bg-white rounded-2xl border border-stone-200/60 p-8 flex flex-col hover:shadow-lg hover:border-stone-300/60 transition-all duration-200"
+              className="bg-white rounded-[2.5rem] p-10 flex flex-col hover:shadow-xl transition-all duration-300 border border-transparent hover:border-emerald-100"
             >
               {/* Icon */}
-              <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-700 mb-5">
+              <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-8">
                 {svc.icon}
               </div>
               
               {/* Title */}
-              <h3 className="text-lg font-bold text-stone-900 mb-2">{svc.title}</h3>
+              <h3 className="text-2xl font-serif font-medium text-stone-900 mb-4 leading-tight">{svc.title}</h3>
               
               {/* Description */}
-              <p className="text-sm text-stone-500 leading-relaxed mb-6">{svc.description}</p>
+              <p className="text-stone-600 leading-relaxed mb-8 font-sans">{svc.description}</p>
               
               {/* Feature list */}
-              <ul className="space-y-3 mb-8 flex-1">
+              <ul className="space-y-4 mb-10 flex-1">
                 {svc.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2.5 text-sm text-stone-600">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <li key={j} className="flex items-start gap-3 text-sm text-stone-600 font-sans">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -92,9 +97,9 @@ export function ServicesSection() {
               {/* Card CTA */}
               <a 
                 href="#book" 
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-800 transition-colors mt-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-emerald-600 text-emerald-700 font-sans font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-200"
               >
-                Learn more
+                {svc.cta}
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
